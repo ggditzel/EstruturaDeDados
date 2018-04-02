@@ -1,10 +1,10 @@
 
 
-package FilaEncadeada;
+package filaEncadeada;
 
-import ItemLista.*;
+import itemLista.*;
 
-public class Fila<T> {
+public class Fila<T> implements IFilaEncadeada<T> {
 	private Item<T> novo;
 	private Item<T> primeiro;
 	private Item<T> ultimo;
