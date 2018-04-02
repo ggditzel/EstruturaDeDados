@@ -44,7 +44,7 @@ public class ItemID<T> {
 	
 	private int geraCodigo() throws Exception {
 		if (codigoGerado == Integer.MAX_VALUE) {
-			throw new Exception("Limite de identificador atingigo, impossível cria novo item.");
+			throw new Exception("Limite de identificador atingido, impossível cria novo item.");
 		}
 		return ++codigoGerado;
 	}
