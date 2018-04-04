@@ -1,10 +1,14 @@
 package itemLista;
 
 
-public class ItemID<T> {
+public class ItemID<T extends Comparable<T>> {
+	
+	/*
+	 * Classe de um item que possui um codigo unico, para poder ser inserido numa lista encadeada ordenada
+	 */
 	
 	private static int codigoGerado;
-	private int codigo;
+	private Integer codigo; // para poder usar o metodo "compareTo" da classe Integer (e nao precisar fazer um especifico)
 	private T valor;
 	private ItemID<T> enderecoProximo;
 	
@@ -35,11 +39,17 @@ public class ItemID<T> {
 	public void setValor(T valor) {
 		this.valor = valor;
 	}
+	
 	public ItemID<T> getEnderecoProximo() {
 		return enderecoProximo;
 	}
+	
 	public void setEnderecoProximo(ItemID<T> enderecoProximo) {
 		this.enderecoProximo = enderecoProximo;
+	}
+	
+	public int compareTo(ItemID<T> i) {
+		return this.codigo.compareTo(i.codigo); // se for necessario outro tipo de comparacao, deve ser implementado codigo especifico
 	}
 	
 	private int geraCodigo() throws Exception {
